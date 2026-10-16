@@ -29,6 +29,11 @@ Set-Location ..
 
 Compose truyền cấu hình database qua `DB_URL`, `DB_USERNAME` và `DB_PASSWORD`. Backend kết nối tới service `mysql` trên network nội bộ. Giá trị trong `.env.example` chỉ dùng cho môi trường thực hành; không dùng lại mật khẩu này ở môi trường thật.
 
-## Minh chứng
+## Kết quả kiểm tra
 
-Ảnh Docker image, trạng thái Compose và health endpoint sẽ được bổ sung sau khi Docker Engine chạy được trên máy kiểm thử.
+- `.\gradlew.bat test`: BUILD SUCCESSFUL, 4 tests, 0 failures.
+- Image: `campushub-docker-backend:latest` (`bed63df59b30`).
+- `docker compose ps`: backend đang chạy, MySQL healthy.
+- `GET /actuator/health`: HTTP 200, trạng thái `UP`.
+
+Ảnh chụp Docker image, Compose và health endpoint chưa được đính kèm.
