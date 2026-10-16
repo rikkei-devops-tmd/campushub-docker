@@ -14,7 +14,7 @@ Copy-Item .env.example .env
 docker compose config
 docker compose up --build -d
 docker compose ps
-Invoke-RestMethod http://localhost:8080/actuator/health
+curl.exe -i http://localhost:8080/actuator/health
 ```
 
 Backend chạy tại http://localhost:8080. Health endpoint: http://localhost:8080/actuator/health.
@@ -36,4 +36,14 @@ Compose truyền cấu hình database qua `DB_URL`, `DB_USERNAME` và `DB_PASSWO
 - `docker compose ps`: backend đang chạy, MySQL healthy.
 - `GET /actuator/health`: HTTP 200, trạng thái `UP`.
 
-Ảnh chụp Docker image, Compose và health endpoint chưa được đính kèm.
+Ảnh Docker image:
+
+![Docker image backend](screenshots/01-docker-image.png)
+
+Ảnh trạng thái Compose:
+
+![Backend và MySQL chạy bằng Compose](screenshots/02-compose-services.png)
+
+Ảnh health endpoint:
+
+![Health endpoint trả về HTTP 200 và UP](screenshots/03-health-up.png)
